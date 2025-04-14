@@ -2,19 +2,14 @@ import os
 
 def push_pull():
     try:
-        print("Switched to Dev branch.")
+
         os.system("git checkout Dev")
         print("Pulling latest changes from remote repository... in Dev folder\n")
         os.system("git pull")
-        print("Switched to Dev branch and pulled latest changes.")
-        print("\n")
-        print("Switched to main branch.")
         os.system("git checkout main")
         print("\n")
-        print("Pulling latest changes from remote repository... in main folder" )
-        os.system("git pull")
-
         print("Switched to main branch and pulled latest changes.")
+        os.system("git pull")
         print("\n")
         print("Pulled latest changes from remote repository...")
 
@@ -25,7 +20,6 @@ def push_pull():
 
     finally:
         os.system("git checkout Dev")
-        print("Switched back to Dev branch.")
         print("\n")
         print("Exiting...")
         print("Happy coding!")
