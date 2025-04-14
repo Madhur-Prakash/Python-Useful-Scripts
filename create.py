@@ -11,7 +11,6 @@ def create_venv():
         print("Virtual environment created successfully.")
         res = (f"./{venv_name}/Scripts/activate\n")
         print("To activate the virtual environment type:\n")
-        subprocess.Popen(res, shell=True)
         print(res)
         print("Exiting...")
         print("Happy coding!")
