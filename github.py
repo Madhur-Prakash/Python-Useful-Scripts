@@ -4,15 +4,9 @@ def push_pull():
     try:
 
         os.system("git checkout Dev")
-        print("Pulling latest changes from remote repository... in Dev folder\n")
         os.system("git pull")
         os.system("git checkout main")
-        print("\n")
-        print("Switched to main branch and pulled latest changes.")
         os.system("git pull")
-        print("\n")
-        print("Pulled latest changes from remote repository...")
-
 
     except Exception as e:
         print(f"An error occurred: {e}")
@@ -20,7 +14,6 @@ def push_pull():
 
     finally:
         os.system("git checkout Dev")
-        print("\n")
         print("Exiting...")
         print("Happy coding!")
         exit(0)
@@ -33,7 +26,7 @@ def push_to_github():
         commit_message = str(input("Enter commit message: ")).strip()
         os.system(f'git commit -m "{commit_message}"')
         print("Committed changes.")
-        os.system("git push -u origin main")
+        os.system("git push -u origin Dev")
         print("Pushed changes to remote repository.")
 
     except Exception as e:
@@ -42,8 +35,6 @@ def push_to_github():
 
     finally:
         os.system("git checkout Dev")
-        print("Switched back to Dev branch.")
-        print("\n")
         print("Exiting...")
         print("Happy coding!")
         exit(0)
@@ -63,7 +54,6 @@ def push_to_personal():
         print("Please check your Github and try again.")
 
     finally:
-        print("\n")
         print("Exiting...")
         print("Happy coding!")
         exit(0)
