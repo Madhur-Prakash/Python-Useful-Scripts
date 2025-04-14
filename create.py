@@ -1,7 +1,4 @@
 import os
-import subprocess
-import sys
-
 
 def create_venv():
     try:
