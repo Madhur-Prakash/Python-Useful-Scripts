@@ -38,9 +38,9 @@ def new_script():
 def main():
     print("Welcome to the new script creation tool!")
     print("This script will help you create a new script with a template.")
-    print("Please follow the prompts.")
     print("\n")
     new_script()
+    
 
 if __name__ == "__main__":
     main()

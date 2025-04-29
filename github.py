@@ -66,7 +66,7 @@ def clone_repo():
         print("Cloned the repository successfully.")
         repo_name = repo_url.split("/")[-1].replace(".git", "")
         print(f"Repository name: {repo_name}")
-        os.system(f"cd {repo_name}")
+        os.chdir(repo_name)
         print(f"Changed directory to {repo_name}.\n")
 
         print("Do you want to open the repository in VS Code? (yes/no)")
