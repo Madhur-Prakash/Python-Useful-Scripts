@@ -20,6 +20,7 @@ def create_venv():
     # Now append the venv name
         with open(".gitignore", "a", encoding="utf-8") as f:
             f.write(f"{venv_name}\n")
+            f.write("_pycache_\n")
 
         print(f"Added '{venv_name}' to .gitignore")
         res = (f"./{venv_name}/Scripts/activate\n")
