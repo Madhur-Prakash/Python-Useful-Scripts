@@ -46,8 +46,18 @@ def make_working_directory():
             f.close()
         with open("app.py", "w") as f:
             f.write("from fastapi import FastAPI\n")
+            f.write("from fastapi.middleware.cors import CORSMiddleware\n")
             f.write("\n")
             f.write("app = FastAPI()\n")
+            f.write("\n")
+            f.write(
+                "app.add_middleware(\n"
+                "    CORSMiddleware,\n"
+                "    allow_origins=[\"*\"],  # Configure this appropriately for production\n"
+                "    allow_credentials=True,\n"
+                "    allow_methods=[\"*\"],\n"
+                "    allow_headers=[\"*\"],\n"
+                ")\n")
 
         os.makedirs("models", exist_ok=True)
         os.chdir("models")
