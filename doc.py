@@ -11,7 +11,7 @@ def start_auth_containers():
 
         inp = str(input("Do you want to start the containers for logging? (y/n): ")).strip().lower()
         if inp == "y":
-            os.system("docker start b23ff") # -> for logging
+            os.system("docker start 76936") # -> for logging
         elif inp == "n":
             print("Skipping logging container startup.")
         print("All containers started successfully!")
