@@ -71,7 +71,7 @@ def clone_repo():
 
         print("Do you want to open the repository in VS Code? (yes/no)")
         open_in_vscode = str(input()).strip().lower()
-        if open_in_vscode == "yes":
+        if open_in_vscode == "yes" or open_in_vscode == "y":
             os.system("code .")
             print("Opened the repository in VS Code.")
         else:
