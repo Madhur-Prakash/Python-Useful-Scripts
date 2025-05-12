@@ -3,7 +3,14 @@ import os
 def install():
     try:
         print("Installation started... Please be patient.")
-        os.system("pip install fastapi[standard] motor kafka-python aioredis")
+        with open("requirements.txt", "w") as f:
+            f.write("fastapi[standard]\n")
+            f.write("motor\n")
+            f.write("kafka-python\n")
+            f.write("aioredis\n")
+            f.write("concurrent_log_handler\n")
+            f.close()
+        os.system("pip install -r requirements.txt")
         print("Installation completed successfully!")
     except Exception as e:
         print(f"An error occurred: {e}")
