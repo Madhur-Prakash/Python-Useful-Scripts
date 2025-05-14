@@ -74,7 +74,7 @@ def make_working_directory(file_name: str):
             f.write("import sys\n")
             f.write("sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))\n")
             f.write("from models.models import demo\n")
-            f.write("from config.database import client as mongo_client\n")
+            f.write("from config.database import mongo_client\n")
             f.write("from helpers.utils import create_new_log, setup_logging\n")
 
         os.chdir("..") # Go back to the root directory
