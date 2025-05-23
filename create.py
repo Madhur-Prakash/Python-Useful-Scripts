@@ -89,7 +89,7 @@ def make_working_directory(file_name: str):
             f.write("# MONGO_URI = \"mongodb://localhost:27017\"\n")
             f.write("\n")
             f.write("\n")
-            f.write("MONGO_URI = \"mongodb://ec2-44-222-241-47.compute-1.amazonaws.com:27017/auth\"  # --> for aws testing\n")
+            f.write("MONGO_URI = \"mongodb://ec2-44-222-241-47.compute-1.amazonaws.com:27017\"  # --> for aws testing\n")
             f.write("mongo_client = AsyncIOMotorClient(MONGO_URI)\n")
             f.close()
 

@@ -1,3 +1,4 @@
+import sys
 import os
 
 def push_pull():
@@ -118,16 +119,17 @@ def setup_new_repo():
 
 def main():
     print("Welcome to the GitHub Pull and Push Script")
-    print("This script will help you pull and push changes to your remote repository.")
-    print("Please make sure you have a stable internet connection.\n")
-    print("- Enter 1 if you want to pull from your organization repo.")
-    print("- Enter 2 if you want to push to your organization repo.")
-    print("- Enter 3 if you want to push to your personal repo.")
-    print("- Enter 4 if you want to clone a new repo.")
-    print("- Enter 5 if you want to setup a new repo.\n")
-    print("Note: Please ensure you have Git installed and configured on your system.")
 
-    choice = str(input("Enter the choice: ")).strip().lower()
+    if len(sys.argv) > 1:
+        choice = sys.argv[1].strip().lower()
+    else:
+        print("Please enter your choice manually:")
+        print("- Enter 1 if you want to pull from your organization repo.")
+        print("- Enter 2 if you want to push to your organization repo.")
+        print("- Enter 3 if you want to push to your personal repo.")
+        print("- Enter 4 if you want to clone a new repo.")
+        print("- Enter 5 if you want to setup a new repo.\n")
+        choice = str(input("Enter the choice: ")).strip().lower()
 
     if choice == "1":
         print("Pulling from organization repo... Please be patient.")
@@ -145,7 +147,7 @@ def main():
         print("Setting up new repository... Please be patient.")
         setup_new_repo()
     else:
-        print("Invalid choice. Please enter 'pull' or 'push'.")
+        print("Invalid choice.")
         exit(1)
 
 if __name__ == "__main__":
