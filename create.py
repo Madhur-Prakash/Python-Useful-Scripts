@@ -114,7 +114,7 @@ def make_working_directory(file_name: str):
             f.write('from concurrent_log_handler import ConcurrentRotatingFileHandler\n\n')
 
             f.write('def create_new_log(log_type: str, message: str, head: str):\n')
-            f.write('    url = "https://0xda081649.execute-api.us-east-1.amazonaws.com/Dev/logger/backend/create_new_logs"\n')
+            f.write('    url = "http://127.0.0.1:8000/backend/create_new_logs"\n')
             f.write('    log = {\n')
             f.write('         "log_type": log_type,\n')
             f.write('         "message": message}\n')

@@ -1,45 +1,6 @@
 import sys
 import os
 
-def push_pull():
-    try:
-
-        os.system("git checkout Dev")
-        os.system("git pull")
-        os.system("git checkout main")
-        os.system("git pull")
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        print("Please check your Github and try again.")
-
-    finally:
-        os.system("git checkout Dev")
-        print("Exiting...")
-        print("Happy coding!")
-        exit(0)
-
-
-def push_to_github():
-    try:
-        os.system("git add .")
-        print("Added all changes to staging area.")
-        commit_message = str(input("Enter commit message: ")).strip()
-        os.system(f'git commit -m "{commit_message}"')
-        print("Committed changes.")
-        os.system("git push -u origin Dev")
-        print("Pushed changes to remote repository.")
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        print("Please check your Github and try again.")
-
-    finally:
-        os.system("git checkout Dev")
-        print("Exiting...")
-        print("Happy coding!")
-        exit(0)
-
 def push_to_personal():
     try:
         os.system("git add .")
@@ -124,26 +85,18 @@ def main():
         choice = sys.argv[1].strip().lower()
     else:
         print("Please enter your choice manually:")
-        print("- Enter 1 if you want to pull from your organization repo.")
-        print("- Enter 2 if you want to push to your organization repo.")
-        print("- Enter 3 if you want to push to your personal repo.")
-        print("- Enter 4 if you want to clone a new repo.")
-        print("- Enter 5 if you want to setup a new repo.\n")
+        print("- Enter 1 if you want to push to your personal repo.")
+        print("- Enter 2 if you want to clone a new repo.")
+        print("- Enter 3 if you want to setup a new repo.\n")
         choice = str(input("Enter the choice: ")).strip().lower()
 
     if choice == "1":
-        print("Pulling from organization repo... Please be patient.")
-        push_pull()
-    elif choice == "2":
-        print("Pushing to organisation repo... Please be patient.")
-        push_to_github()
-    elif choice == "3":
         print("Pushing to personal repo... Please be patient.")
         push_to_personal()
-    elif choice == "4":
+    elif choice == "2":
         print("Cloning the repo... Please be patient.")
         clone_repo()
-    elif choice == "5":
+    elif choice == "3":
         print("Setting up new repository... Please be patient.")
         setup_new_repo()
     else:
