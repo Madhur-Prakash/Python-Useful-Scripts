@@ -4,14 +4,14 @@ import os
 def start_auth_containers():
     try:
         print("Starting authentication... Please be patient.")
-        os.system("docker start 5969e") # -> for mailhog
-        os.system("docker start d30e3") # -> for redis
-        os.system("docker start e603e") # -> for kafka 
-        os.system("docker start 9e480") # -> for zookeper
+        os.system("docker start bc601") # -> for mailhog
+        os.system("docker start b4683") # -> for redis
+        os.system("docker start 77d33") # -> for kafka 
+        os.system("docker start 6e4e8") # -> for zookeper
 
         inp = str(input("Do you want to start the containers for logging? (y/n): ")).strip().lower()
         if inp == "y":
-            os.system("docker start 76936") # -> for logging
+            os.system("docker start 9ffd9") # -> for logging
         elif inp == "n":
             print("Skipping logging container startup.")
         print("All containers started successfully!")
@@ -28,11 +28,11 @@ def start_auth_containers():
 def stop_auth_containers():
     try:
         print("Stopping authentication... Please be patient.")
-        os.system("docker stop 5969e") # -> for mailhog
-        os.system("docker stop d30e3") # -> for redis
-        os.system("docker stop e603e") # -> for kafka 
-        os.system("docker stop 9e480") # -> for zookeper
-        os.system("docker stop 3a900") # -> for logging
+        os.system("docker stop bc601") # -> for mailhog
+        os.system("docker stop b4683") # -> for redis
+        os.system("docker stop 77d33") # -> for kafka 
+        os.system("docker stop 6e4e8") # -> for zookeper
+        os.system("docker stop 9ffd9") # -> for logging
         print("All containers stopped successfully!")
     except Exception as e:
         print(f"An error occurred: {e}")
