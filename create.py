@@ -41,9 +41,8 @@ def create_venv():
         print("Happy coding!")
         exit(0)
 
-def make_working_directory(file_name: str):
+def make_working_directory(file_name: str, folder_name: str = "workspace"):
     try:
-        folder_name = str(input("Enter the name of the folder: ")).strip()
         os.makedirs(folder_name, exist_ok=True)
         os.chdir(folder_name)
         os.makedirs("models", exist_ok=True)
@@ -66,7 +65,9 @@ def make_working_directory(file_name: str):
         with open("__init__.py", "w") as f:
             f.write("# This is the init file for the src directory\n")
             f.close()
-        with open(f"{file_name}.py", "w") as f:
+        if not (file_name.endswith(".py")):
+            file_name += ".py"
+        with open(f"{file_name}", "w") as f:
             f.write("from fastapi import APIRouter, status\n")
             f.write("from fastapi.exceptions import HTTPException\n")
             f.write("import traceback\n")
@@ -198,8 +199,9 @@ def main():
     print("This script will help you create and setup a python workspace.")
     print("Please follow the prompts.")
     print("\n")
+    folder_name = str(input("Enter the name of the folder: ")).strip()
     src_file_name = str(input("Enter the name of the source file: ")).strip()
-    make_working_directory(src_file_name)
+    make_working_directory(src_file_name, folder_name)
     create_venv()
     print("\n")
     print("Your workspace is ready!")
