@@ -1,9 +1,12 @@
 ```
 python executable scripts/
 ├── .gitignore  # gitignore file for GitHub
-├── FOLDER_STRUCTURE.md
 ├── create.py
 ├── doc.py
 ├── github.py
-└── structure.py
+├── inst.py
+├── new.py
+├── react.py
+├── structure.py
+└── touch.py
 ```
