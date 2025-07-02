@@ -10,7 +10,7 @@ FILE_COMMENTS = {
     "models.py": "models"
 }
 
-IGNORED_FILES = [".git", "__pycache__", ".DS_Store", ".vscode", "node_modules", ".pytest_cache", "logs", "venv", "FOLDER_STRUCTURE.md"]
+IGNORED_FILES = [".git", "__pycache__", ".DS_Store", ".vscode", "node_modules", ".pytest_cache", "logs", "venv", "FOLDER_STRUCTURE.md", "dist", "build"]
 
 def ignore_files(venv: str = "venv"):
     ignore_file = list(str(input("Any specific file to ignore? Please provide a list of files separated by commas: ")).split(","))
