@@ -7,7 +7,11 @@ FILE_COMMENTS = {
     ".gitignore": "gitignore file for GitHub",
     "__init__.py": "initializes package",
     "log.py": "main logic",
-    "models.py": "models"
+    "models.py": "models",
+    "schemas.py": "schemas",
+    "utils.py": "utility functions",
+    "config.py": "configuration settings",
+    "database.py": "database configuration"
 }
 
 IGNORED_FILES = [".git", "__pycache__", ".DS_Store", ".vscode", "node_modules", ".pytest_cache", "logs", "venv", "FOLDER_STRUCTURE.md", "dist", "build"]
