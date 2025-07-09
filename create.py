@@ -157,6 +157,9 @@ def make_working_directory(file_name: str, folder_name: str = "workspace"):
             f.write("# This is the init file for the tests directory\n")
             f.close()
         os.chdir("..") # Go back to the root directory
+        with open("__init__.py", "w") as f:
+            f.write("# This is the init file for the root directory\n")
+            f.close()
         os.chdir("..") # Go back to the root directory
         with open("__init__.py", "w") as f:
             f.write("# This is the init file for the root directory\n")
