@@ -1,4 +1,3 @@
-import os
 
 def new_script():
     try: 
