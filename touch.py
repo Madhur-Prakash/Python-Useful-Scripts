@@ -1,4 +1,3 @@
-import os
 import sys
 
 def make_new_file(*args):
