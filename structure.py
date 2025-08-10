@@ -16,6 +16,14 @@ FILE_COMMENTS = {
 
 IGNORED_FILES = [".git", "__pycache__", ".DS_Store", ".vscode", "node_modules", ".pytest_cache", "logs", "venv", "FOLDER_STRUCTURE.md", "dist", "build"]
 
+def read_gitignore():
+    try:
+        with open(".gitignore", "r") as f:
+            ignored_files = f.read().splitlines()
+        return [file.strip() for file in ignored_files if file.strip()]
+    except FileNotFoundError:
+        return []  # Return an empty list if .gitignore does not exist
+    
 def ignore_files(venv: str = "venv"):
     ignore_file = list(str(input("Any specific file to ignore? Please provide a list of files separated by commas: ")).split(","))
     if venv:
@@ -23,6 +31,9 @@ def ignore_files(venv: str = "venv"):
         ignore_file.append(venv)
     ignore_file = [file.strip() for file in ignore_file if file.strip()]  # Clean up the list
     ignore_file.extend(IGNORED_FILES)  # Add default ignored files - don't assign the result
+    gitignore_files = read_gitignore()
+    ignore_file.extend(gitignore_files)  # Add .gitignore files
+    ignore_file = list(set(ignore_file))  # Remove duplicates
     return ignore_file
 
 def draw_tree_to_md(dir_path, prefix="", output=[], function_output=None):
