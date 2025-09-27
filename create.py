@@ -202,8 +202,12 @@ def main():
     print("This script will help you create and setup a python workspace.")
     print("Please follow the prompts.")
     print("\n")
-    folder_name = str(input("Enter the name of the folder: ")).strip()
-    src_file_name = str(input("Enter the name of the source file: ")).strip()
+
+    default_folder_name = os.path.basename(os.getcwd())
+    arr = default_folder_name.split(" ") if " " in default_folder_name else default_folder_name.split("-") if "-" in default_folder_name else default_folder_name.split("_") if "_" in default_folder_name else [default_folder_name]
+    default_folder_name = "_".join(arr).lower()
+    folder_name = str(input(f"Enter the name of the folder ({default_folder_name}): ")).strip() or default_folder_name
+    src_file_name = str(input(f"Enter the name of the source file ({default_folder_name}): ")).strip() or default_folder_name
     make_working_directory(src_file_name, folder_name)
     create_venv()
     print("\n")
