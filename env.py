@@ -7,7 +7,7 @@ def read_env_file():
     try:
         # env_lines = []
         if not os.path.exists('.env'):
-            console.print("[red bold]'.env'[/red bold] [red]file not found[/red]")
+            console.print("[red]'.env'[/red] [red]file not found[/red]")
             return
         with open('.env', 'r') as env_file:
             env_lines = env_file.readlines()            
@@ -19,7 +19,7 @@ def read_env_file():
 
 def create_env_sample(env_content: str=[]):
     try:
-        new_content = [f'{env_var} = YOUR_' + env_var for env_var in env_content]
+        new_content = [f'{env_var} = "YOUR_{env_var}"' for env_var in env_content]
         with open('.env.sample', 'w') as sample_file:
             sample_file.write('\n'.join(new_content))
     except Exception as e:
