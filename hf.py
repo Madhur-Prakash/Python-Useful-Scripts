@@ -10,9 +10,27 @@ HF = "hf"
 
 
 def run_cmd(cmd):
-    """Run shell command"""
+    """Run shell command and stream output live"""
+
     try:
-        subprocess.run(cmd, check=True)
+        process = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            bufsize=1
+        )
+
+        for line in process.stdout:
+            print(line, end="")
+
+        process.wait()
+
+        if process.returncode != 0:
+            raise subprocess.CalledProcessError(
+                process.returncode, cmd
+            )
+
     except subprocess.CalledProcessError:
         print("❌ Command failed:", " ".join(cmd))
         sys.exit(1)
@@ -46,8 +64,6 @@ def show_size(args):
             f"(Get-ChildItem '{cache}' -Recurse | "
             "Measure-Object -Property Length -Sum).Sum / 1GB"
         ])
-    else:
-        run_cmd(["du", "-sh", cache])
 
 
 def search_models(args):
